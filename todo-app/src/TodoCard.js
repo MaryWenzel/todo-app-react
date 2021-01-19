@@ -1,11 +1,22 @@
 import React from 'react'
 
+const buttonStyle = {
+    backgroundColor: "#61DAFB",
+    color: "white",
+    fontSize: "14px",
+    padding: "5px 30px",
+    borderRadius: "5px",
+    margin: "10px 5px",
+    cursor: "pointer"
+}
+
+
 function TodoCard(props) {
 
-    const { title, removeTodo, index } = props
+    const {title, clickToRemove, index} = props
     return (
-        <li style={{ color: "#61DAFB" }}>{title + " "}
-            <button onClick={() => { removeTodo(index) }}>Done</button>
+        <li style={{ color: "#61DAFB" }} >{title}
+            <button style={ buttonStyle }onClick={() => {clickToRemove(index)}}>Delete</button>
         </li>
     )
 }

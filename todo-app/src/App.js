@@ -30,11 +30,11 @@ class App extends Component {
     this.setState({inputValue: ""})
   }
 
-  handleDelete = (index) => {
-    console.log(index)
+  deleteItem = (index) => {
+    console.log("was clicked", index)
     let listCopy = this.state.listOfTodos
     listCopy.splice(index, 1)
-    this.setState({listOfTodos: [...listCopy]})
+    this.setState({ listOfTodos: [...listCopy] })
   }
 
   render() {
@@ -53,7 +53,8 @@ class App extends Component {
           {this.state.isClicked ? "true" : "false"}
         </p>
         {this.state.listOfTodos.map((todo, index) => {
-              return <TodoCard key={index} index={index} title={todo} removeTodo={this.handleDelete}/>
+              return <TodoCard key={index} index={index} title={todo} 
+              clickToRemove={this.deleteItem}/>
             })}
             {this.props.name}
       </header>
